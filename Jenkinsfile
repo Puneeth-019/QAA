@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage('Checkout App Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/developer-org/app-repo.git'
+                git branch: 'main', url: 'https://github.com/Puneeth-019/QAA.git'
             }
         }
 
         stage('Checkout Regression Tests') {
             steps {
                 dir('regression-tests') {
-                    git branch: 'main', url: 'https://github.com/qa-org/regression-tests.git'
+                    git branch: 'main', url: 'https://github.com/Puneeth-019/REG.git'
                 }
             }
         }
@@ -45,7 +45,7 @@ pipeline {
             junit 'regression-tests/target/surefire-reports/*.xml'
         }
         failure {
-            mail to: 'qa-team@company.com',
+            mail to: '19puneethshetty@gmail.com',
                  subject: "Regression Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                  body: "Check Jenkins for details: ${env.BUILD_URL}"
         }
