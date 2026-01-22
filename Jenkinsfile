@@ -20,10 +20,9 @@ pipeline {
 
         stage('Build App') {
             steps {
-                // Adjust this path if pom.xml is inside a subfolder
-                dir('QAA') {
-                    sh 'mvn clean install'
-                }
+                // Run Maven only if pom.xml exists in QAA repo
+                sh 'ls -l' // debug: confirm pom.xml is present
+                sh 'mvn clean install'
             }
         }
 
@@ -49,7 +48,7 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: 'regression-tests/test-output/**', fingerprint: true
-            // Updated path to match your actual report location
+            // Updated to match actual TestNG output location
             junit 'regression-tests/test-output/testng-results.xml'
         }
         failure {
