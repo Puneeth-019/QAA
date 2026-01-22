@@ -1,0 +1,75 @@
+[1mdiff --git a/IfaTC1.java b/IfaTC1.java[m
+[1mdeleted file mode 100644[m
+[1mindex 79b7dd6..0000000[m
+[1m--- a/IfaTC1.java[m
+[1m+++ /dev/null[m
+[36m@@ -1,62 +0,0 @@[m
+[31m-package ifa;[m
+[31m-[m
+[31m-import org.testng.annotations.Test;[m
+[31m-import org.testng.annotations.Test;[m
+[31m-import org.testng.annotations.Test;[m
+[31m-import org.testng.AssertJUnit;[m
+[31m-import org.testng.annotations.Test;[m
+[31m-import org.testng.AssertJUnit;[m
+[31m-import org.testng.Assert;[m
+[31m-import org.testng.annotations.Test;[m
+[31m-[m
+[31m-import java.time.Duration;[m
+[31m-import java.util.concurrent.TimeUnit;[m
+[31m-[m
+[31m-import org.openqa.selenium.JavascriptExecutor;[m
+[31m-import org.openqa.selenium.firefox.FirefoxDriver;[m
+[31m-import org.openqa.selenium.interactions.Actions;[m
+[31m-import org.openqa.selenium.support.ui.ExpectedConditions;[m
+[31m-import org.openqa.selenium.support.ui.WebDriverWait;[m
+[31m-[m
+[31m-import io.github.bonigarcia.wdm.WebDriverManager;[m
+[31m-[m
+[31m-public class IfaTC1 {[m
+[31m-	[m
+[31m-	@Test[m
+[31m-	[m
+[31m-	public void Login() throws InterruptedException[m
+[31m-	{[m
+[31m-		WebDriverManager.firefoxdriver().setup();[m
+[31m-		FirefoxDriver driver = new FirefoxDriver();[m
+[31m-		[m
+[31m-		[m
+[31m-		[m
+[31m-		//login feature[m
+[31m-		driver.manage().window().maximize();[m
+[31m-		[m
+[31m-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);[m
+[31m-		[m
+[31m-		driver.get("https://qa.ifaclick.com/login");[m
+[31m-		driver.findElementById("email").sendKeys("venkatesh.prasad@techcanopy.com");[m
+[31m-		[m
+[31m-		driver.findElementById("password").sendKeys("Manuvenky7#");[m
+[31m-		[m
+[31m-		driver.findElementByXPath("//button[@type='submit']").click();[m
+[31m-		[m
+[31m-		[m
+[31m-		String actualTitle = driver.getTitle().trim();[m
+[31m-		[m
+[31m-		System.out.println(actualTitle);[m
+[31m-		[m
+[31m-		[m
+[31m-		Thread.sleep(2000);[m
+[31m-[m
+[31m-		[m
+[31m-		Actions act=new Actions(driver);[m
+[31m-		[m
+[31m-		act.contextClick(driver.findElementByXPath("//div[text()='Prospect mark']")).perform();[m
+[31m-		[m
+[31m-		[m
+[31m-	}[m
+[31m-[m
+[31m-}[m
+[1mdiff --git a/file.txt b/file.txt[m
+[1mdeleted file mode 100644[m
+[1mindex f08a9a5..0000000[m
+[1m--- a/file.txt[m
+[1m+++ /dev/null[m
+[36m@@ -1 +0,0 @@[m
+[31m-testing automation framework[m
