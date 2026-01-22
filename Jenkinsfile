@@ -20,7 +20,10 @@ pipeline {
 
         stage('Build App') {
             steps {
-                sh 'mvn clean install'
+                // Adjust this path if pom.xml is inside a subfolder
+                dir('QAA') {
+                    sh 'mvn clean install'
+                }
             }
         }
 
@@ -46,12 +49,11 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: 'regression-tests/test-output/**', fingerprint: true
-            junit 'regression-tests/target/surefire-reports/*.xml'
+            // Updated path to match your actual report location
+            junit 'regression-tests/test-output/testng-results.xml'
         }
         failure {
-            mail to: 'qa-team@yourcompany.com',
-                 subject: "Regression Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                 body: "Check Jenkins for details: ${env.BUILD_URL}"
+            echo "Build failed. Email notification skipped due to missing SMTP setup."
         }
     }
 }
