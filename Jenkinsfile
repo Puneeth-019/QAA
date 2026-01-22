@@ -12,7 +12,7 @@ pipeline {
             steps {
                 dir('regression-tests') {
                     git branch: 'main',
-                        credentialsId: 'github-pat',
+                        credentialsId: 'PAT',
                         url: 'https://github.com/Puneeth-019/REG.git'
                 }
             }
