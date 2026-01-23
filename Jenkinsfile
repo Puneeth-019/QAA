@@ -10,10 +10,13 @@ pipeline {
             }
         }
         stage('Checkout Tests') {
-            steps {
-                git branch: 'main', url: 'https://github.com/Puneeth-019/REG.git'
-            }
-        }
+    steps {
+        git branch: 'main', 
+            url: 'https://github.com/Puneeth-019/REG.git', 
+            credentialsId: 'NEW_pass'
+    }
+}
+
         stage('Run Tests') {
             steps {
                 sh 'mvn clean test -Dheadless=true'
