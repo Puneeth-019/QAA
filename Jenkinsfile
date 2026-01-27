@@ -16,7 +16,7 @@ pipeline {
             credentialsId: 'NEW_pass'
     }
 }
-      stage('Run Tests') {
+        stage('Run Tests') {
     tools {
         jdk 'JDK'  
       
