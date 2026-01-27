@@ -16,14 +16,21 @@ pipeline {
             credentialsId: 'NEW_pass'
     }
 }
-
       stage('Run Tests') {
     tools {
         jdk 'JDK17'  
       
     }
     steps {
-        sh 'mvn clean test -Dheadless=true'
+        sh '''
+                    echo "JAVA_HOME is $JAVA_HOME"
+                    echo "PATH includes: $PATH"
+                    java -version
+                    javac -version
+                    mvn -version
+                '''
+
+                sh 'mvn clean test -Dheadless=true'
     }
 }
     }
