@@ -17,11 +17,15 @@ pipeline {
     }
 }
 
-        stage('Run Tests') {
-            steps {
-                sh 'mvn clean test -Dheadless=true'
-            }
-        }
+      stage('Run Tests') {
+    tools {
+        jdk 'JDK17'  
+      
+    }
+    steps {
+        sh 'mvn clean test -Dheadless=true'
+    }
+}
     }
     post {
         always {
