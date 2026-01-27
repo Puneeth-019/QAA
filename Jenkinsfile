@@ -18,7 +18,7 @@ pipeline {
 }
       stage('Run Tests') {
     tools {
-        jdk 'JDK17'  
+        jdk 'JDK'  
       
     }
     steps {
