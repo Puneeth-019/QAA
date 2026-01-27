@@ -29,9 +29,10 @@ echo "JAVA_HOME=$JAVA_HOME"
 java -version
 javac -version
 mvn -version
+ mvn clean test -Dheadless=true
                 '''
 
-                sh 'mvn clean test -Dheadless=true'
+                
     }
 }
     }
